@@ -1,0 +1,16 @@
+.kat{}
+.chimitry {
+  background-color: lightgrey;
+  width: 10px;
+  border: 2px solid green;
+  padding: 6px;
+  margin: 2px;
+}
+.chimitry:hover{
+  background-color: white;
+  width: 15px;
+  border: 2px solid green;
+  padding: 12px;
+  margin: 2px;
+  font-size: 30px;
+}
