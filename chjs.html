@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://unpkg.com/nes.css@2.2.1/css/nes.min.css" rel="stylesheet" />
+
+
+<style>
+.kat{}
+.chimitry {
+  background-color: lightgrey;
+  width: 10px;
+  border: 2px solid green;
+  padding: 6px;
+  margin: 2px;
+}
+.chimitry:hover{
+  background-color: white;
+  width: 15px;
+  border: 2px solid green;
+  padding: 12px;
+  margin: 2px;
+  font-size: 30px;
+}
+</style>
+
+<body onload="chim()">
+
+
+<input id="bx" type="text" name="LastName" value="Mouse"><br>
+<input onclick="get()" type="submit" value="Submit">
+<hr>
+<p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, <span class="kat">as opposed</span> to using 'Content here, content here', making it look like readable <span class="kat">English</span>. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+<p>There are <span class="kat">many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</span> in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything <span class="kat">embarrassing hidden in the middle of text</span>. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, <span class="kat">to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is</span> therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+
+
+<script>
+
+function chim(){
+
+  
+  var x = document.getElementsByClassName("kat");
+
+  for (let i = 0; i < x.length; i++) {
+    x[i].innerHTML = init(x[i].innerHTML); 
+  }
+  
+
+}
+
+
+function init(n){
+var table = [
+"H","He","Li","Be","B","C","N","O","F","Ne",
+"Na","Mg","AI","Si","P","S","Cl","Ar",
+"K","Ca","Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn","Ga","Ge","As","Se","Br","Kr",
+"Rb","Sr","Y","Zr","Nb","Mo","Tc","Ru","Rh","Pd","Ag","Cd","In","Sn","Sb","Te","I","Xe",
+"Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Td","Dy","Ho","Er","Tm","Yb","Lu",
+"Hf","Ta","W","Re","Os","Ir","Pt","Au","Hg","TI","Pb","Bi","Po","At","Rn",
+"Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","L",
+"Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Nh","Fl","Mc","Lv","Ts","Og",
+]
+
+var str="";
+var tmp="";
+
+for (let ii=0; ii < n.length;ii++ ){
+
+for (let i=0; i <table.length ;i++){
+
+if (n[ii] == " "){
+    tmp = "<span class='chimitry'><span style='font-size:25px'> </span></span>";
+    break;
+}
+
+ else if (table[i].toLowerCase() === (n[ii]+n[ii+1]).toLowerCase() ){
+    tmp = "<span class='chimitry'><span style='font-size:25px'>"+table[i]+"</span><span style='font-size:7px'>"+i+"</span></span>";
+    ii++;
+    break;
+  }
+  else if (table[i].toLowerCase() === n[ii].toLowerCase()){
+    tmp = "<span class='chimitry'><span style='font-size:25px'>"+table[i]+"</span><span style='font-size:7px'>"+i+"</span></span>";    
+  }
+}
+
+
+str += tmp;
+tmp="";
+
+}
+
+
+return str;
+
+ 
+}
+
+function get(){
+var n = document.getElementById('bx').value
+init(n);
+}
+
+
+</script>
+
+</body>
+</html> 
